@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 // React modules
 import { useState } from 'react';
@@ -9,7 +9,11 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.accountant}>{count}</Text>
+            <Pressable
+                onPress={() => setCount(count + 1)}
+                onLongPress={() => setCount(0)}>
+                <Text style={styles.accountant}>{count}</Text>
+            </Pressable>
             <StatusBar style='auto' />
         </View>
     );
